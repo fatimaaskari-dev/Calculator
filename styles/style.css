@@ -1,0 +1,381 @@
+
+/* ========================================
+   RESET
+======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "League Spartan", sans-serif;
+
+  transition: 0.3s;
+}
+
+
+/* ========================================
+   THEME 1
+   Blue / Gray
+======================================== */
+
+.theme-1 {
+
+  --main-bg: #3a4764;
+  --keypad-bg: #232c43;
+  --display-bg: #182034;
+
+  --key-bg: #eae3dc;
+  --key-text: #444b5a;
+  --key-shadow: #b4a597;
+
+  --special-bg: #637097;
+  --special-shadow: #404e72;
+
+  --equal-bg: #d03f2f;
+  --equal-shadow: #93261a;
+
+  --text-color: #ffffff;
+}
+
+
+/* ========================================
+   THEME 2
+   Light / Blue
+======================================== */
+
+.theme-2 {
+
+  --main-bg: #e6e6e6;
+  --keypad-bg: #d1cccc;
+  --display-bg: #ededed;
+
+  --key-bg: #e5e4e1;
+  --key-text: #35352c;
+  --key-shadow: #a69d91;
+
+  --special-bg: #377f86;
+  --special-shadow: #1b5f65;
+
+  --equal-bg: #ca5502;
+  --equal-shadow: #893901;
+
+  --text-color: #35352c;
+}
+
+
+/* ========================================
+   THEME 3
+   Purple / Pink
+======================================== */
+
+.theme-3 {
+
+  --main-bg: #160628;
+  --keypad-bg: #1d0935;
+  --display-bg: #1d0935;
+
+  --key-bg: #331c4d;
+  --key-text: #ffe53d;
+  --key-shadow: #851c9c;
+
+  --special-bg: #58077d;
+  --special-shadow: #bc15f4;
+
+  --equal-bg: #00e0d1;
+  --equal-shadow: #6cf9f2;
+
+  --text-color: #ffe53d;
+}
+
+.theme-toggle {
+  position: relative;
+}
+
+.toggle-ball {
+  position: absolute;
+  left: 5px;
+
+  transition: left 0.3s;
+}
+
+.theme-2 .toggle-ball {
+  left: 27px;
+}
+
+.theme-3 .toggle-ball {
+  left: 50px;
+}
+
+/* ========================================
+   BODY
+======================================== */
+
+body {
+  background-color: var(--main-bg);
+  color: var(--text-color);
+}
+
+
+/* ========================================
+   CALCULATOR
+======================================== */
+
+.calculator {
+  width: min(540px, 90%);
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 32px;
+  color: var(--text-color);
+}
+
+
+/* ========================================
+   THEME SWITCHER
+======================================== */
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+
+.theme-title {
+  font-size: 12px;
+  font-weight: 700;
+
+  color: var(--text-color);
+}
+
+.theme-container {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.theme-numbers {
+  display: flex;
+  justify-content: space-around;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  color: var(--text-color);
+}
+
+.theme-toggle {
+  width: 70px;
+  height: 25px;
+
+  padding: 5px;
+
+  border-radius: 20px;
+
+  background-color: var(--keypad-bg);
+
+  cursor: pointer;
+}
+
+.toggle-ball {
+  display: block;
+
+  width: 15px;
+  height: 15px;
+
+  border-radius: 50%;
+
+  background-color: var(--equal-bg);
+}
+
+
+/* ========================================
+   DISPLAY
+======================================== */
+
+.display {
+  height: 130px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  padding: 25px;
+
+  margin-bottom: 25px;
+
+  border-radius: 10px;
+
+  background-color: var(--display-bg);
+
+  overflow: hidden;
+}
+
+.display p {
+  font-size: 48px;
+  font-weight: 700;
+
+  color: var(--text-color);
+}
+
+
+/* ========================================
+   KEYPAD
+======================================== */
+
+.keypad {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+
+  padding: 30px;
+
+  border-radius: 10px;
+
+  background-color: var(--keypad-bg);
+}
+
+
+/* ========================================
+   ALL BUTTONS
+======================================== */
+
+.key {
+  height: 60px;
+
+  border: none;
+  border-radius: 8px;
+
+  font-family: inherit;
+
+  font-size: 32px;
+  font-weight: 700;
+
+  color: var(--key-text);
+
+  background-color: var(--key-bg);
+
+  box-shadow: 0 4px 0 var(--key-shadow);
+
+  cursor: pointer;
+
+  transition: 0.1s;
+}
+
+.key:hover {
+  filter: brightness(1.15);
+}
+
+.key:active {
+  transform: translateY(3px);
+
+  box-shadow: 0 1px 0 var(--key-shadow);
+}
+
+
+/* ========================================
+   DELETE + RESET
+======================================== */
+
+.key-special {
+  color: #ffffff;
+
+  font-size: 20px;
+
+  background-color: var(--special-bg);
+
+  box-shadow: 0 4px 0 var(--special-shadow);
+}
+
+
+/* ========================================
+   RESET
+======================================== */
+
+.key-reset {
+  grid-column: span 2;
+}
+
+
+/* ========================================
+   EQUAL
+======================================== */
+
+.key-equal {
+  grid-column: span 2;
+
+  color: #ffffff;
+
+  background-color: var(--equal-bg);
+
+  box-shadow: 0 4px 0 var(--equal-shadow);
+}
+
+
+/* ========================================
+   THEME 3 SPECIAL COLORS
+======================================== */
+
+.theme-3 .key-special {
+  color: #ffffff;
+}
+
+.theme-3 .key-equal {
+  color: #1b1b1b;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .calculator {
+    width: 90%;
+  }
+
+  .keypad {
+    gap: 13px;
+    padding: 20px;
+  }
+
+  .key {
+    height: 60px;
+
+    font-size: 25px;
+  }
+
+  .display {
+    height: 110px;
+  }
+
+  .display p {
+    font-size: 38px;
+  }
+}
